@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    background-color: #ff3a58; /* Initial background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .circle {
+    width: 200px;
+    height: 200px;
+    background-color: #5e1269; /* Initial circle color */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  body.switched .circle {
+    background-color: #ff3a58; /* Switched circle color */
+  }
+
+  body.switched {
+    background-color: #5e1269; /* Switched background color */
+  }
+</style>
 </head>
 <body>
-    💯
+  <!-- theres nothing else here stop digging  -->
+
+  <div class="circle"></div>
+
+  <script>
+    const circle = document.querySelector('.circle');
+    circle.addEventListener('click', () => {
+      document.body.classList.toggle('switched');
+    });
+  </script>
 </body>
 </html>

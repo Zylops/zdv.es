@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
 <link rel="icon" type="image/x-icon" href="https://imgur.com/XFX295I.png">
 <style>
   body {
@@ -18,25 +21,42 @@
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px; /* Adjust font size as needed */
+    /* color: white; */
+    color: #ff3a58;
+    font-weight: bolder;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 500%;
   }
 
   body.switched .circle {
     background-color: #ff3a58; /* Switched circle color */
+    color:#5e1269;
   }
 
   body.switched {
     background-color: #5e1269; /* Switched background color */
+    color: #ff3a58;
   }
 </style>
 </head>
 <body>
-  <!-- theres nothing else here stop digging  -->
-
-  <div class="circle"></div>
+  <div class="circle">
+    0
+  </div>
 
   <script>
     const circle = document.querySelector('.circle');
+    let count = localStorage.getItem('count') || 0; // Get initial count from localStorage
+    circle.textContent = count; // Display initial count
+
     circle.addEventListener('click', () => {
+      count++; // Increment count
+      circle.textContent = count; // Update display
+      localStorage.setItem('count', count); // Persist to localStorage
       document.body.classList.toggle('switched');
     });
   </script>

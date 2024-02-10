@@ -53,7 +53,7 @@
 
   <script>
     const circle = document.querySelector('.circle');
-    let count = localStorage.getItem('count') || 0; // Get initial count from localStorage
+    let count = parseInt(localStorage.getItem('count')) || 0; // Get initial count from localStorage
     circle.textContent = count; // Display initial count
 
     circle.addEventListener('click', () => {
